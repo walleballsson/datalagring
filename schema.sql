@@ -14,12 +14,13 @@ CREATE TABLE course_layout (
   course_name   VARCHAR(100) NOT NULL,
   min_students  INT NOT NULL,
   max_students  INT NOT NULL,
-  hp            INT NOT NULL
+ hp DECIMAL(4,1) NOT NULL
 );
 
 -- DEPARTMENT
 CREATE TABLE department (
-  department_name VARCHAR(50) PRIMARY KEY
+  department_name VARCHAR(50) PRIMARY KEY,
+   manager_id      CHAR(10) 
 );
 
 -- JOB TITLE
@@ -55,7 +56,7 @@ CREATE TABLE course_instance (
 -- EMPLOYEE (subtype of PERSON)
 CREATE TABLE employee (
   employment_id       CHAR(10) PRIMARY KEY,
-  personal_number     CHAR(10) NOT NULL,
+  personal_number     CHAR(10) NOT NULL UNIQUE,
   department_name     VARCHAR(50) NOT NULL,
   job_title           VARCHAR(50) NOT NULL,
   skill_set           VARCHAR(100) NOT NULL,
@@ -66,6 +67,11 @@ CREATE TABLE employee (
   FOREIGN KEY (department_name) REFERENCES department(department_name),
   FOREIGN KEY (job_title)       REFERENCES job_title(job_title)
 );
+
+ALTER TABLE department
+  ADD CONSTRAINT fk_department_manager
+  FOREIGN KEY (manager_id) REFERENCES employee(employment_id);
+
 
 -- PLANNED ACTIVITY (allocation of teachers to course instances)
 CREATE TABLE planned_activity (

@@ -2,7 +2,7 @@
 
 A relational database system modelling teaching staff, course instances,
 workload allocation, and salary at a university.
-Built across three labs for KTH course IV1351 Applied Database Technology.
+Built across three labs for KTH course IV1351 Database Technology.
 
 ## What it does
 - Models employees, departments, courses, planned activities, and salary history
@@ -16,13 +16,13 @@ Built across three labs for KTH course IV1351 Applied Database Technology.
 - SQL (schema design, OLAP queries, triggers)
 
 ## Structure
-schema.sql        — database schema (3NF, 12 tables)
-data.sql          — sample data
-lab2task1.sql     — query: list all course instances
-lab2task2.sql     — query: hours per teacher per course instance
-lab2task3.sql     — query: hours per teacher across all courses
-lab2task4.sql     — query: salary cost per course
-lab3Main.java     — Java CLI with transaction control
+schema.sql        - database schema (3NF, 12 tables)
+data.sql          - sample data
+lab2task1.sql     - query: list all course instances
+lab2task2.sql     - query: hours per teacher per course instance
+lab2task3.sql     - query: hours per teacher across all courses
+lab2task4.sql     - query: salary cost per course
+lab3Main.java     - Java CLI with transaction control
 
 ## Setup
 1. Create the database: mysql -u root -p < schema.sql
